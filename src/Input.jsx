@@ -41,7 +41,7 @@ export function ExperienceInfo() {
             <InputContainer title='Location' id='compLocation' type="text"/>
             <div className="inputContainer">
                 <label htmlFor="description">Description </label>
-                <textarea name="description" id="description" cols="30" rows="5"></textarea>
+                <textarea name="description" id="description" cols="30" rows="5" className='textarea'></textarea>
             </div>
         </div>
     )
