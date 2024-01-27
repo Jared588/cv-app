@@ -1,0 +1,14 @@
+.infoContainer {
+    padding: 1rem 5rem;
+}
+
+.inputContainer {
+    display: flex;
+    flex-direction: column;
+    margin-left: 0.1rem;
+}
+
+.dateContainer {
+    display: flex;
+    gap: 1rem;
+}
