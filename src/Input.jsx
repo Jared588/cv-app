@@ -10,9 +10,9 @@ export default function Info({ handleChange }) {
                 <h1>Personal Details</h1>
                 <InputContainer title='Full Name' id='fullName' type="text" onChange={handleChange}/>
                 <InputContainer title='Job Title* (optional)' id='title' type="text" onChange={handleChange}/>
-                <InputContainer title='Email' id='email' type="email"/>
-                <InputContainer title='Phone Number' id='phoneNumber' type="tel"/>
-                <InputContainer title='Address' id='address' type="text"/>
+                <InputContainer title='Email' id='email' type="email" onChange={handleChange}/>
+                <InputContainer title='Phone Number' id='phoneNumber' type="tel" onChange={handleChange}/>
+                <InputContainer title='Address' id='address' type="text" onChange={handleChange}/>
             </div>
 
             {/* Education */}

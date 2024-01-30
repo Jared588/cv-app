@@ -15,9 +15,9 @@ function Cv({ values }) {
       <div className="left-side">
         <img src="./src/assets/images/blank-profile.png" alt="blank profile" className='profile-img'/>
         <div className="section">
-          <div id="email" className="contact-container">{emailIcon} johndavis@gmail.com</div>
-          <div id="phone" className="contact-container">{phoneIcon} 555-555-5555</div>
-          <div id="location" className="contact-container">{locationIcon} London, UK</div>
+          <div id="email" className="contact-container">{emailIcon} {values.email}</div>
+          <div id="phone" className="contact-container">{phoneIcon} {values.phoneNumber}</div>
+          <div id="location" className="contact-container">{locationIcon} {values.address}</div>
         </div>
         <div className="section">
           <h1>Education</h1>
@@ -46,7 +46,9 @@ Cv.propTypes = {
     values: PropTypes.shape({
       fullName: PropTypes.string,
       title: PropTypes.string,
-      email: PropTypes.string,
+      email: PropTypes.email,
+      phoneNumber: PropTypes.number,
+      address: PropTypes.string,
       // Add other PropTypes for properties as needed
     }),
   };
