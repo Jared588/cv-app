@@ -4,15 +4,3 @@
   padding: 2rem;
   text-align: center;
 }
-
-.cv-container {
-  display: flex;
-  width: 800px;
-  height: 1000px;
-  background-color: aliceblue;
-}
-
-.left-side {
-  width: 33%;
-  background-color: rgb(46, 54, 71);
-}

@@ -1,0 +1,77 @@
+.cv-container {
+    display: flex;
+    width: 800px;
+    height: 1000px;
+    background-color: aliceblue;
+}
+
+/* Left-side */
+
+.left-side {
+display: flex;
+flex-direction: column;
+padding-left: 2rem;
+width: 33%;
+background-color: rgb(47, 59, 80);
+text-align: left;
+}
+
+.profile-img {
+display: flex;
+width: 125px;
+border-radius: 5rem;
+align-self: center;
+margin: 1rem 2rem 1.5rem 0rem;
+}
+
+.contact-container {
+display: flex;
+flex-direction: row;
+justify-content: flex-start;
+gap: 0.5rem;
+}
+
+.section > h1 {
+font-size: 24px;
+border-bottom: 1px white solid;
+margin-right: 3rem;
+}
+
+.education-container > *{
+margin: 0;
+font-weight: 400;
+}
+.education-container > h1 {
+font-size: 13px;
+font-weight: 650;
+}
+.education-container > h2 {
+font-size: 11px;
+}
+
+.contact-icons {
+width: 1rem;
+fill: aliceblue;
+}
+
+/* Right-side */
+
+.right-side {
+color: rgb(49, 52, 77);
+display: flex;
+flex-direction: column;
+padding-left: 2rem;
+width: 66%;
+text-align: left;
+}
+
+.name {
+margin-bottom: 0;
+}
+
+.title {
+margin-top: 0;
+font-size: 14px;
+color: rgb(80, 80, 80);
+}
+  
