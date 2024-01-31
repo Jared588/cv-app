@@ -46,10 +46,10 @@ function Cv({ values, skills, languages }) {
         </div>
         <div className='about-me'>
           <h3>About Me</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+          <p>{values.aboutme}</p>
         </div>
         <div className='experience'>
-          <h3>Experience</h3>
+          <h3>Work Experience</h3>
           <ExperienceInfo startDate="2023" endDate="2024" companyName="Johnson & Jefferson" position="Web Designer" location="Colorado" description="lots of stuff... really"/>
           <ExperienceInfo startDate="2023" endDate="2024" companyName="Johnson & Jefferson" position="Web Designer" location="Colorado" description="lots of stuff... really"/>
           <ExperienceInfo startDate="2023" endDate="2024" companyName="Johnson & Jefferson" position="Web Designer" location="Colorado" description="lots of stuff... really"/>

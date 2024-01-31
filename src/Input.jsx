@@ -13,6 +13,10 @@ export default function Info({ handleChange, handleAddSkill, skillValue, setSkil
                 <InputContainer title='Email' id='email' type="email" onChange={handleChange}/>
                 <InputContainer title='Phone Number' id='phoneNumber' type="tel" onChange={handleChange}/>
                 <InputContainer title='Address' id='address' type="text" onChange={handleChange}/>
+                <div className="inputContainer">
+                    <label htmlFor="aboutme">About me</label>
+                    <textarea name="aboutme" id="aboutme" cols="30" rows="5" className='textarea' onChange={(e) => handleChange('aboutme', e.target.value)}></textarea>
+                </div>
             </div>
 
             {/* Education */}
@@ -39,7 +43,7 @@ export default function Info({ handleChange, handleAddSkill, skillValue, setSkil
                 </div>
                 <InputContainer title='Location' id='compLocation' type="text"/>
                 <div className="inputContainer">
-                    <label htmlFor="description">Description </label>
+                    <label htmlFor="description">Description</label>
                     <textarea name="description" id="description" cols="30" rows="5" className='textarea'></textarea>
                 </div>
                 <button className='addBtn' id='expBtn'>Add +</button>

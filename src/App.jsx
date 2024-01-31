@@ -12,7 +12,8 @@ function App() {
   // languages
   const [languages, setLanguages] = useState([]);
   const [langValue, setLangValue] = useState('');
-
+  // references
+  
   function handleChange(id, newValue) {
     setValues((prevValues) => ({
       ...prevValues,

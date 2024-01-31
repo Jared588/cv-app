@@ -90,8 +90,8 @@
      color: rgb(66, 66, 66);
 }
 
-.experience > h3,
-.about-me > h3 {
+.about-me > h3,
+.experience > h3 {
     color: rgb(134, 142, 153);
     letter-spacing: 5px;
     border-bottom: 1px solid rgb(210, 210, 212);
@@ -100,11 +100,12 @@
 }
 
 .experience-container {
-    padding: 0rem 0rem 0.7rem 0.2rem
+    padding: 0rem 0rem 0.7rem 0.2rem;
 }
 .experience-container > h1 {
-    font-size: 18px;
+    font-size: 16px;
     margin-bottom: 0rem;
+    color: rgb(87, 87, 87);
 }
 .experience-container > h2 {
     font-size: 12px;
