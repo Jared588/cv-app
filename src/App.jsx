@@ -4,11 +4,14 @@ import './index.css';
 import { useState } from 'react';
 
 function App() {
-  // general details
+  // general
   const [values, setValues] = useState({});
   // skills
   const [skills, setSkills] = useState([]);
-  const [inputValue, setInputValue] = useState('');
+  const [skillValue, setSkillValue] = useState('');
+  // languages
+  const [languages, setLanguages] = useState([]);
+  const [langValue, setLangValue] = useState('');
 
   function handleChange(id, newValue) {
     setValues((prevValues) => ({
@@ -21,7 +24,15 @@ function App() {
     if (skill) {
       // Add to skills list
       setSkills((prevSkills) => [...prevSkills, skill]);
-      setInputValue(''); // Clear the input field
+      setSkillValue(''); // Clear the input field
+    }
+  }
+
+  function handleAddLang(lang) {
+    if (lang) {
+      // Add to slang list
+      setLanguages((prevLanguages) => [...prevLanguages, lang]);
+      setLangValue(''); // Clear the input field
     }
   }
 
@@ -30,10 +41,13 @@ function App() {
       <Info
         handleChange={handleChange}
         handleAddSkill={handleAddSkill}
-        inputValue={inputValue}
-        setInputValue={setInputValue}
+        skillValue={skillValue}
+        setSkillValue={setSkillValue}
+        handleAddLang={handleAddLang}
+        langValue={langValue}
+        setLangValue={setLangValue}
       />
-      <Cv values={values} skills={skills} />
+      <Cv values={values} skills={skills} languages={languages}/>
     </div>
   );
 }
