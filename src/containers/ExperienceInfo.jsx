@@ -1,14 +1,12 @@
 import PropTypes from 'prop-types';
-import '../App.css'
+import '../Cv.css'
 
 function ExperienceInfo({ startDate, endDate, companyName, position, location, description}) {
     return (
-        <div className="education-container">
+        <div className="experience-container">
             <h1>{position}</h1>
-            <h2>{companyName}</h2>
-            <h2>{location}</h2>
-            <h2>{startDate} - {endDate}</h2>
-            <h2>{description}</h2>
+            <h2>{companyName} | {location} | {startDate} - {endDate}</h2>
+            <p>{description}</p>
         </div>
     )
 }
