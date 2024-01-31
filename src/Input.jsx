@@ -2,7 +2,7 @@ import InputContainer from './containers/InputContainer';
 import PropTypes from 'prop-types';
 import './input.css';
 
-export default function Info({ handleChange }) {
+export default function Info({ handleChange, handleAddSkill, inputValue, setInputValue }) {
     return  (
         <div className='info'>
             {/* Personal Details */}
@@ -44,10 +44,20 @@ export default function Info({ handleChange }) {
                 </div>
                 <button className='addBtn' id='expBtn'>Add +</button>
             </div>
+
+            {/* Skills */}
+            <div className='infoContainer'>
+                <h1>Skills</h1>
+                <input type="text" id='skill' value={inputValue} onChange={(e) => setInputValue(e.target.value)}/>
+                <button className='addBtn' id='skillBtn' onClick={() => handleAddSkill(inputValue)}>Add +</button>
+            </div>
         </div>
     )
 }
 
 Info.propTypes = {
     handleChange: PropTypes.func,
+    handleAddSkill: PropTypes.func,
+    inputValue: PropTypes.string,
+    setInputValue: PropTypes.func,
 };
