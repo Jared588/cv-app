@@ -1,10 +1,10 @@
 import PropTypes from 'prop-types';
 
-function InputContainer({ title, id, type, onChange }) {
+function InputContainer({ title, id, type, onChange, value }) {
     return (
         <div className="inputContainer">
             <label htmlFor={id}>{title} </label>
-            <input type={type} id={id} onChange={(e) => onChange(id, e.target.value)}/>
+            <input type={type} id={id} value={value} onChange={(e) => onChange(id, e.target.value)}/>
         </div>
     );
 }

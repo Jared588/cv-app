@@ -12,7 +12,22 @@ function App() {
   // languages
   const [languages, setLanguages] = useState([]);
   const [langValue, setLangValue] = useState('');
-  // references
+  // education
+  const [educations, setEducations] = useState([]);
+  const [formData, setFormData] = useState({});
+
+  function handleEducationForm(id, value) {
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      [id]: value,
+    }));
+  }
+
+  function handleAddEducation(education) {
+    if (education) {
+      setEducations((prevEducations) => [...prevEducations, education])
+    }
+  }
   
   function handleChange(id, newValue) {
     setValues((prevValues) => ({
@@ -47,8 +62,11 @@ function App() {
         handleAddLang={handleAddLang}
         langValue={langValue}
         setLangValue={setLangValue}
+        handleEducationForm={handleEducationForm}
+        handleAddEducation={handleAddEducation}
+        formData={formData}
       />
-      <Cv values={values} skills={skills} languages={languages}/>
+      <Cv values={values} skills={skills} languages={languages} educations={educations}/>
     </div>
   );
 }

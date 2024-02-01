@@ -6,7 +6,6 @@
 }
 
 /* Left-side */
-
 .left-side {
     display: flex;
     flex-direction: column;
@@ -38,6 +37,9 @@
     margin-right: 3rem;
 }
 
+.education-container {
+    padding-bottom: 1rem;
+}
 .education-container > *{
     margin: 0;
     font-weight: 400;
@@ -61,7 +63,6 @@
 }
 
 /* Right-side */
-
 .right-side {
     background-color: rgb(221, 221, 221);
     color: rgb(49, 52, 77);
