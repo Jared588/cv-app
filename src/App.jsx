@@ -15,6 +15,22 @@ function App() {
   // education
   const [educations, setEducations] = useState([]);
   const [formData, setFormData] = useState({});
+  // experience
+  const [experiences, setExperiences] = useState([]);
+  const [expData, setExpData] = useState({});
+
+  function handleExpForm(id, value) {
+    setExpData((prevExpData) => ({
+      ...prevExpData,
+      [id]: value,
+    }));
+  }
+
+  function handleAddExp(exp) {
+    if (exp) {
+      setExperiences((prevExp) => [...prevExp, exp])
+    }
+  }
 
   function handleEducationForm(id, value) {
     setFormData((prevFormData) => ({
@@ -65,8 +81,11 @@ function App() {
         handleEducationForm={handleEducationForm}
         handleAddEducation={handleAddEducation}
         formData={formData}
+        handleExpForm={handleExpForm}
+        handleAddExp={handleAddExp}
+        expData={expData}
       />
-      <Cv values={values} skills={skills} languages={languages} educations={educations}/>
+      <Cv values={values} skills={skills} languages={languages} educations={educations} experiences={experiences}/>
     </div>
   );
 }

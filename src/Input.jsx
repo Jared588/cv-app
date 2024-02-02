@@ -2,7 +2,7 @@ import InputContainer from './containers/InputContainer';
 import PropTypes from 'prop-types';
 import './input.css';
 
-export default function Info({ handleChange, handleAddSkill, skillValue, setSkillValue, handleAddLang, langValue, setLangValue, handleEducationForm, handleAddEducation, formData }) {
+export default function Info({ handleChange, handleAddSkill, skillValue, setSkillValue, handleAddLang, langValue, setLangValue, handleEducationForm, handleAddEducation, formData, handleExpForm, handleAddExp, expData }) {
     return  (
         <div className='info'>
             {/* Personal Details */}
@@ -34,18 +34,18 @@ export default function Info({ handleChange, handleAddSkill, skillValue, setSkil
             {/* Experience */}
             <div className="infoContainer">
                 <h1>Experience</h1>
-                <InputContainer title='Company Name' id='company' type="text"/>
-                <InputContainer title='Position Title' id='position' type="text"/>
+                <InputContainer title='Company Name' id='company' type="text" value={expData.company || ''} onChange={handleExpForm}/>
+                <InputContainer title='Position Title' id='position' type="text" value={expData.position || ''} onChange={handleExpForm}/>
                 <div className='dateContainer'>
-                    <InputContainer title='Start Date' id='expStartDate' type="date"/>
-                    <InputContainer title='End Date' id='expEndDate' type="date"/>
+                    <InputContainer title='Start Date' id='expStartDate' type="date" value={expData.expStartDate || ''} onChange={handleExpForm}/>
+                    <InputContainer title='End Date' id='expEndDate' type="date" value={expData.expEndDate || ''} onChange={handleExpForm}/>
                 </div>
-                <InputContainer title='Location' id='compLocation' type="text"/>
+                <InputContainer title='Location' id='compLocation' type="text" value={expData.compLocation || ''} onChange={handleExpForm}/>
                 <div className="inputContainer">
                     <label htmlFor="description">Description</label>
-                    <textarea name="description" id="description" cols="30" rows="5" className='textarea'></textarea>
+                    <textarea name="description" id="description" cols="30" rows="5" className='textarea' value={expData.description || ''} onChange={(e) => handleExpForm('description', e.target.value)}></textarea>
                 </div>
-                <button className='addBtn' id='expBtn'>Add +</button>
+                <button className='addBtn' id='expBtn' onClick={() => handleAddExp(expData)}>Add +</button>
             </div>
 
             {/* Skills */}
@@ -76,4 +76,7 @@ Info.propTypes = {
     handleEducationForm: PropTypes.func,
     handleAddEducation: PropTypes.func,
     formData: PropTypes.objectOf(PropTypes.string),
+    handleExpForm: PropTypes.func,
+    handleAddExp: PropTypes.func,
+    expData: PropTypes.objectOf(PropTypes.string),
 };
