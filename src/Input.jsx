@@ -2,12 +2,13 @@ import InputContainer from './containers/InputContainer';
 import PropTypes from 'prop-types';
 import './input.css';
 
-export default function Info({ handleChange, handleAddSkill, skillValue, setSkillValue, handleAddLang, langValue, setLangValue, handleEducationForm, handleAddEducation, formData, handleExpForm, handleAddExp, expData }) {
+export default function Info({ handleChange }) {
+    
     return  (
-        <div className='info'>
+        <div>
             {/* Personal Details */}
-            <div className="infoContainer">
-                <h1>Personal Details</h1>
+            <h1 className='input-heading'>Personal Details</h1>
+                <div className="infoContainer" id='personal'>
                 <InputContainer title='Full Name' id='fullName' type="text" onChange={handleChange}/>
                 <InputContainer title='Job Title* (optional)' id='title' type="text" onChange={handleChange}/>
                 <InputContainer title='Email' id='email' type="email" onChange={handleChange}/>
@@ -17,11 +18,16 @@ export default function Info({ handleChange, handleAddSkill, skillValue, setSkil
                     <label htmlFor="aboutme">About me</label>
                     <textarea name="aboutme" id="aboutme" cols="30" rows="5" className='textarea' onChange={(e) => handleChange('aboutme', e.target.value)}></textarea>
                 </div>
-            </div>
+            </div> 
+        </div>
+    )
+}
 
-            {/* Education */}
-            <div className="infoContainer">
-                <h1>Education</h1>
+export function Education({ handleEducationForm, handleAddEducation, formData }) {
+    return ( 
+        <>
+            <h1 className='input-heading'>Education</h1>
+            <div className="infoContainer" id='education'>
                 <InputContainer title='School' id='school' type="text" value={formData.school || ''} onChange={handleEducationForm}/>
                 <InputContainer title='Degree' id='degree' type="text" value={formData.degree || ''} onChange={handleEducationForm}/>
                 <div className='dateContainer'>
@@ -30,10 +36,15 @@ export default function Info({ handleChange, handleAddSkill, skillValue, setSkil
                 </div>
                 <button className='addBtn' id='eduBtn' onClick={() => handleAddEducation(formData)}>Add +</button>
             </div>
+        </>
+    )
+}
 
-            {/* Experience */}
-            <div className="infoContainer">
-                <h1>Experience</h1>
+export function Experience({ handleExpForm, handleAddExp, expData }) {
+    return (
+        <>
+            <h1 className='input-heading'>Experience</h1>
+            <div className="infoContainer" id='experience'>
                 <InputContainer title='Company Name' id='company' type="text" value={expData.company || ''} onChange={handleExpForm}/>
                 <InputContainer title='Position Title' id='position' type="text" value={expData.position || ''} onChange={handleExpForm}/>
                 <div className='dateContainer'>
@@ -47,36 +58,58 @@ export default function Info({ handleChange, handleAddSkill, skillValue, setSkil
                 </div>
                 <button className='addBtn' id='expBtn' onClick={() => handleAddExp(expData)}>Add +</button>
             </div>
+        </>
+    )
+}
 
-            {/* Skills */}
+export function Skills({ handleAddSkill, skillValue, setSkillValue }) {
+    return (
+        <>
+            <h1 className='input-heading'>Skills</h1>
             <div className='infoContainer'>
-                <h1>Skills</h1>
                 <input type="text" id='skill' value={skillValue} onChange={(e) => setSkillValue(e.target.value)}/>
                 <button className='addBtn' id='skillBtn' onClick={() => handleAddSkill(skillValue)}>Add +</button>
             </div>
+        </>
+    )
+}
 
-            {/* Languages */}
+export function Languages({ handleAddLang, langValue, setLangValue }) {
+    return (
+        <>
+            <h1 className='input-heading'>Languages</h1>
             <div className='infoContainer'>
-                <h1>Languages</h1>
                 <input type="text" id='language' value={langValue} onChange={(e) => setLangValue(e.target.value)}/>
                 <button className='addBtn' id='langBtn' onClick={() => handleAddLang(langValue)}>Add +</button>
             </div>
-        </div>
+        </>
     )
 }
 
 Info.propTypes = {
     handleChange: PropTypes.func,
-    handleAddSkill: PropTypes.func,
-    skillValue: PropTypes.string,
-    setSkillValue: PropTypes.func,
-    handleAddLang: PropTypes.func,
-    langValue: PropTypes.string,
-    setLangValue: PropTypes.func,
+};
+
+Education.propTypes = {
     handleEducationForm: PropTypes.func,
     handleAddEducation: PropTypes.func,
     formData: PropTypes.objectOf(PropTypes.string),
+}
+
+Experience.propTypes = {
     handleExpForm: PropTypes.func,
     handleAddExp: PropTypes.func,
     expData: PropTypes.objectOf(PropTypes.string),
-};
+}
+
+Skills.propTypes = {
+    handleAddSkill: PropTypes.func,
+    skillValue: PropTypes.string,
+    setSkillValue: PropTypes.func,
+}
+
+Languages.propTypes = {
+    handleAddLang: PropTypes.func,
+    langValue: PropTypes.string,
+    setLangValue: PropTypes.func,
+}

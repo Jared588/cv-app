@@ -9,6 +9,10 @@
     padding: 1rem 5rem;
 }
 
+.input-heading {
+    cursor: pointer;
+}
+
 .inputContainer {
     display: flex;
     flex-direction: column;

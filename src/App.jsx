@@ -1,4 +1,5 @@
 import Info from './Input.jsx';
+import { Education, Experience, Skills, Languages } from './Input.jsx';
 import Cv from './Cv.jsx';
 import './index.css';
 import { useState } from 'react';
@@ -28,7 +29,7 @@ function App() {
 
   function handleAddExp(exp) {
     if (exp) {
-      setExperiences((prevExp) => [...prevExp, exp])
+      setExperiences((prevExp) => [...prevExp, exp]);
     }
   }
 
@@ -41,10 +42,10 @@ function App() {
 
   function handleAddEducation(education) {
     if (education) {
-      setEducations((prevEducations) => [...prevEducations, education])
+      setEducations((prevEducations) => [...prevEducations, education]);
     }
   }
-  
+
   function handleChange(id, newValue) {
     setValues((prevValues) => ({
       ...prevValues,
@@ -70,22 +71,36 @@ function App() {
 
   return (
     <div className="main">
-      <Info
-        handleChange={handleChange}
-        handleAddSkill={handleAddSkill}
-        skillValue={skillValue}
-        setSkillValue={setSkillValue}
-        handleAddLang={handleAddLang}
-        langValue={langValue}
-        setLangValue={setLangValue}
-        handleEducationForm={handleEducationForm}
-        handleAddEducation={handleAddEducation}
-        formData={formData}
-        handleExpForm={handleExpForm}
-        handleAddExp={handleAddExp}
-        expData={expData}
+      <div className="info">
+        <Info handleChange={handleChange} />
+        <Education
+          handleEducationForm={handleEducationForm}
+          handleAddEducation={handleAddEducation}
+          formData={formData}
+        />
+        <Experience
+          handleExpForm={handleExpForm}
+          handleAddExp={handleAddExp}
+          expData={expData}
+        />
+        <Skills
+          handleAddSkill={handleAddSkill}
+          skillValue={skillValue}
+          setSkillValue={setSkillValue}
+        />
+        <Languages
+          handleAddLang={handleAddLang}
+          langValue={langValue}
+          setLangValue={setLangValue}
+        />
+      </div>
+      <Cv
+        values={values}
+        skills={skills}
+        languages={languages}
+        educations={educations}
+        experiences={experiences}
       />
-      <Cv values={values} skills={skills} languages={languages} educations={educations} experiences={experiences}/>
     </div>
   );
 }
