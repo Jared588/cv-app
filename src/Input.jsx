@@ -5,13 +5,12 @@ import './input.css';
 
 export default function Info({ handleChange }) {
     const [isContainerVisible, setContainerVisibility] = useState(false);
-    const toggleContainerVisbility = () => {
+    const toggleContainerVisibility = () => {
         setContainerVisibility(!isContainerVisible)
     }
     return  (
-        <div>
-            {/* Personal Details */}
-            <h1 className='input-heading' onClick={toggleContainerVisbility}>Personal Details</h1>
+        <>
+            <button className='input-heading' onClick={toggleContainerVisibility}>Personal Details</button>
             {isContainerVisible && (
                 <div className="infoContainer" id='personal'>
                     <InputContainer title='Full Name' id='fullName' type="text" onChange={handleChange}/>
@@ -25,18 +24,18 @@ export default function Info({ handleChange }) {
                     </div>
                 </div>
             )}
-        </div>
+        </>
     )
 }
 
 export function Education({ handleEducationForm, handleAddEducation, formData }) {
     const [isContainerVisible, setContainerVisibility] = useState(false);
-    const toggleContainerVisbility = () => {
+    const toggleContainerVisibility = () => {
         setContainerVisibility(!isContainerVisible)
     }
     return ( 
         <>
-            <h1 className='input-heading' onClick={toggleContainerVisbility}>Education</h1>
+            <button className='input-heading' onClick={toggleContainerVisibility}>Education</button>
             {isContainerVisible && (
                 <div className="infoContainer" id='education'>
                     <InputContainer title='School' id='school' type="text" value={formData.school || ''} onChange={handleEducationForm}/>
@@ -54,12 +53,12 @@ export function Education({ handleEducationForm, handleAddEducation, formData })
 
 export function Experience({ handleExpForm, handleAddExp, expData }) {
     const [isContainerVisible, setContainerVisibility] = useState(false);
-    const toggleContainerVisbility = () => {
+    const toggleContainerVisibility = () => {
         setContainerVisibility(!isContainerVisible)
     }
     return (
         <>
-            <h1 className='input-heading' onClick={toggleContainerVisbility}>Experience</h1>
+            <button className='input-heading' onClick={toggleContainerVisibility}>Experience</button>
             {isContainerVisible && (
                 <div className="infoContainer" id='experience'>
                     <InputContainer title='Company Name' id='company' type="text" value={expData.company || ''} onChange={handleExpForm}/>
@@ -82,12 +81,12 @@ export function Experience({ handleExpForm, handleAddExp, expData }) {
 
 export function Skills({ handleAddSkill, skillValue, setSkillValue }) {
     const [isContainerVisible, setContainerVisibility] = useState(false);
-    const toggleContainerVisbility = () => {
+    const toggleContainerVisibility = () => {
         setContainerVisibility(!isContainerVisible)
     }
     return (
         <>
-            <h1 className='input-heading' onClick={toggleContainerVisbility}>Skills</h1>
+            <button className='input-heading' onClick={toggleContainerVisibility}>Skills</button>
             {isContainerVisible && (
                 <div className='infoContainer'>
                     <input type="text" id='skill' value={skillValue} onChange={(e) => setSkillValue(e.target.value)}/>
@@ -100,12 +99,12 @@ export function Skills({ handleAddSkill, skillValue, setSkillValue }) {
 
 export function Languages({ handleAddLang, langValue, setLangValue }) {
     const [isContainerVisible, setContainerVisibility] = useState(false);
-    const toggleContainerVisbility = () => {
+    const toggleContainerVisibility = () => {
         setContainerVisibility(!isContainerVisible)
     }
     return (
         <>
-            <h1 className='input-heading' onClick={toggleContainerVisbility}>Languages</h1>
+            <button className='input-heading' onClick={toggleContainerVisibility}>Languages</button>
             {isContainerVisible && (
                 <div className='infoContainer'>
                     <input type="text" id='language' value={langValue} onChange={(e) => setLangValue(e.target.value)}/>
