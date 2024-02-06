@@ -72,7 +72,10 @@ function App() {
   return (
     <div className="main">
       <div className="info">
-        <Info handleChange={handleChange} />
+        <Info 
+          handleChange={handleChange}
+          values={values}
+        />
         <Education
           handleEducationForm={handleEducationForm}
           handleAddEducation={handleAddEducation}

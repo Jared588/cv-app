@@ -3,7 +3,7 @@ import InputContainer from './containers/InputContainer';
 import PropTypes from 'prop-types';
 import './input.css';
 
-export default function Info({ handleChange }) {
+export default function Info({ handleChange, values }) {
     const [isContainerVisible, setContainerVisibility] = useState(false);
     const toggleContainerVisibility = () => {
         setContainerVisibility(!isContainerVisible)
@@ -13,14 +13,14 @@ export default function Info({ handleChange }) {
             <button className='input-heading' onClick={toggleContainerVisibility}>Personal Details</button>
             {isContainerVisible && (
                 <div className="infoContainer" id='personal'>
-                    <InputContainer title='Full Name' id='fullName' type="text" onChange={handleChange}/>
-                    <InputContainer title='Job Title* (optional)' id='title' type="text" onChange={handleChange}/>
-                    <InputContainer title='Email' id='email' type="email" onChange={handleChange}/>
-                    <InputContainer title='Phone Number' id='phoneNumber' type="tel" onChange={handleChange}/>
-                    <InputContainer title='Address' id='address' type="text" onChange={handleChange}/>
+                    <InputContainer title='Full Name' id='fullName' type="text" value={values.fullName || ''} onChange={handleChange}/>
+                    <InputContainer title='Job Title* (optional)' id='title' type="text" value={values.title || ''} onChange={handleChange}/>
+                    <InputContainer title='Email' id='email' type="email" value={values.email || ''} onChange={handleChange}/>
+                    <InputContainer title='Phone Number' id='phoneNumber' value={values.phoneNumber || ''} type="tel" onChange={handleChange}/>
+                    <InputContainer title='Address' id='address' type="text" value={values.address || ''} onChange={handleChange}/>
                     <div className="inputContainer">
                         <label htmlFor="aboutme">About me</label>
-                        <textarea name="aboutme" id="aboutme" cols="30" rows="5" className='textarea' onChange={(e) => handleChange('aboutme', e.target.value)}></textarea>
+                        <textarea name="aboutme" id="aboutme" cols="30" rows="5" className='textarea' value={values.aboutme || ''} onChange={(e) => handleChange('aboutme', e.target.value)}></textarea>
                     </div>
                 </div>
             )}
@@ -169,6 +169,7 @@ export function Languages({ handleAddLang, langValue, setLangValue, languages, s
 
 Info.propTypes = {
     handleChange: PropTypes.func,
+    values: PropTypes.object
 };
 
 Education.propTypes = {
