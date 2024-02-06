@@ -48,8 +48,8 @@ export function Education({ handleEducationForm, handleAddEducation, formData, e
                     <InputContainer title='School' id='school' type="text" value={formData.school || ''} onChange={handleEducationForm}/>
                     <InputContainer title='Degree' id='degree' type="text" value={formData.degree || ''} onChange={handleEducationForm}/>
                     <div className='dateContainer'>
-                        <InputContainer title='Start Date' id='eduStartDate' type="date" value={formData.startDate || ''} onChange={handleEducationForm}/>
-                        <InputContainer title='End Date' id='eduEndDate' type="date" value={formData.endDate || ''} onChange={handleEducationForm}/>
+                        <InputContainer title='Start Date' id='eduStartDate' type="date" value={formData.eduStartDate || ''} onChange={handleEducationForm}/>
+                        <InputContainer title='End Date' id='eduEndDate' type="date" value={formData.eduEndDate || ''} onChange={handleEducationForm}/>
                     </div>
                     <button className='addBtn' id='eduBtn' onClick={() => handleAddEducation(formData)}>Add +</button>
                     {educations.map((education, index) => (
