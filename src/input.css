@@ -65,3 +65,13 @@
 .addBtn:hover {
     border: 1px solid rgb(207, 207, 207);
 }
+
+.list-item {
+    text-align: left;
+    border: 1px solid white;
+    border-radius: 0.5rem;
+    padding: 0.1rem;
+    padding-left: 0.5rem;
+    margin: 0.5rem;
+    background-color: rgb(52, 62, 71);
+}

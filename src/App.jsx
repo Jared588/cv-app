@@ -77,21 +77,29 @@ function App() {
           handleEducationForm={handleEducationForm}
           handleAddEducation={handleAddEducation}
           formData={formData}
+          educations={educations}
+          setEducations={setEducations}
         />
         <Experience
           handleExpForm={handleExpForm}
           handleAddExp={handleAddExp}
           expData={expData}
+          experiences={experiences}
+          setExperiences={setExperiences}
         />
         <Skills
           handleAddSkill={handleAddSkill}
           skillValue={skillValue}
           setSkillValue={setSkillValue}
+          skills={skills}
+          setSkills={setSkills}
         />
         <Languages
           handleAddLang={handleAddLang}
           langValue={langValue}
           setLangValue={setLangValue}
+          languages={languages}
+          setLanguages={setLanguages}
         />
       </div>
       <Cv

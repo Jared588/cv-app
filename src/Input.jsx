@@ -28,11 +28,18 @@ export default function Info({ handleChange }) {
     )
 }
 
-export function Education({ handleEducationForm, handleAddEducation, formData }) {
+export function Education({ handleEducationForm, handleAddEducation, formData, educations, setEducations }) {
     const [isContainerVisible, setContainerVisibility] = useState(false);
     const toggleContainerVisibility = () => {
         setContainerVisibility(!isContainerVisible)
     }
+    const removeEducationItem = (index) => {
+        // Create a new array without the removed item
+        const updatedEducations = [...educations.slice(0, index), ...educations.slice(index + 1)];
+        
+        // Update state with the new array
+        setEducations(updatedEducations);
+    };
     return ( 
         <>
             <button className='input-heading' onClick={toggleContainerVisibility}>Education</button>
@@ -45,17 +52,30 @@ export function Education({ handleEducationForm, handleAddEducation, formData })
                         <InputContainer title='End Date' id='eduEndDate' type="date" value={formData.endDate || ''} onChange={handleEducationForm}/>
                     </div>
                     <button className='addBtn' id='eduBtn' onClick={() => handleAddEducation(formData)}>Add +</button>
+                    {educations.map((education, index) => (
+                        <li className='list-item' key={index}>
+                            {education.school} - {education.degree}
+                            <button className='removeBtn' onClick={() => removeEducationItem(index)}>remove</button>
+                        </li>
+                    ))} 
                 </div>
             )}
         </>
     )
 }
 
-export function Experience({ handleExpForm, handleAddExp, expData }) {
+export function Experience({ handleExpForm, handleAddExp, expData, experiences, setExperiences }) {
     const [isContainerVisible, setContainerVisibility] = useState(false);
     const toggleContainerVisibility = () => {
         setContainerVisibility(!isContainerVisible)
     }
+    const removeExpItem = (index) => {
+        // Create a new array without the removed item
+        const updatedExperiences = [...experiences.slice(0, index), ...experiences.slice(index + 1)];
+        
+        // Update state with the new array
+        setExperiences(updatedExperiences);
+    };
     return (
         <>
             <button className='input-heading' onClick={toggleContainerVisibility}>Experience</button>
@@ -73,17 +93,30 @@ export function Experience({ handleExpForm, handleAddExp, expData }) {
                         <textarea name="description" id="description" cols="30" rows="5" className='textarea' value={expData.description || ''} onChange={(e) => handleExpForm('description', e.target.value)}></textarea>
                     </div>
                     <button className='addBtn' id='expBtn' onClick={() => handleAddExp(expData)}>Add +</button>
+                    {experiences.map((experience, index) => (
+                        <li className='list-item' key={index}>
+                            {experience.company} - {experience.position}
+                            <button className='removeBtn' onClick={() => removeExpItem(index)}>remove</button>
+                        </li>
+                    ))} 
                 </div>
             )}
         </>
     )
 }
 
-export function Skills({ handleAddSkill, skillValue, setSkillValue }) {
+export function Skills({ handleAddSkill, skillValue, setSkillValue, skills, setSkills }) {
     const [isContainerVisible, setContainerVisibility] = useState(false);
     const toggleContainerVisibility = () => {
         setContainerVisibility(!isContainerVisible)
     }
+    const removeSkill = (index) => {
+        // Create a new array without the removed item
+        const updatedSkills = [...skills.slice(0, index), ...skills.slice(index + 1)];
+        
+        // Update state with the new array
+        setSkills(updatedSkills);
+    };
     return (
         <>
             <button className='input-heading' onClick={toggleContainerVisibility}>Skills</button>
@@ -91,17 +124,30 @@ export function Skills({ handleAddSkill, skillValue, setSkillValue }) {
                 <div className='infoContainer'>
                     <input type="text" id='skill' value={skillValue} onChange={(e) => setSkillValue(e.target.value)}/>
                     <button className='addBtn' id='skillBtn' onClick={() => handleAddSkill(skillValue)}>Add +</button>
+                    {skills.map((skill, index) => (
+                        <li className='list-item' key={index}>
+                            {skill}
+                            <button className='removeBtn' onClick={() => removeSkill(index)}>remove</button>
+                        </li>
+                    ))} 
                 </div>
             )}
         </>
     )
 }
 
-export function Languages({ handleAddLang, langValue, setLangValue }) {
+export function Languages({ handleAddLang, langValue, setLangValue, languages, setLanguages }) {
     const [isContainerVisible, setContainerVisibility] = useState(false);
     const toggleContainerVisibility = () => {
         setContainerVisibility(!isContainerVisible)
     }
+    const removeLang = (index) => {
+        // Create a new array without the removed item
+        const updatedLanguages = [...languages.slice(0, index), ...languages.slice(index + 1)];
+        
+        // Update state with the new array
+        setLanguages(updatedLanguages);
+    };
     return (
         <>
             <button className='input-heading' onClick={toggleContainerVisibility}>Languages</button>
@@ -109,6 +155,12 @@ export function Languages({ handleAddLang, langValue, setLangValue }) {
                 <div className='infoContainer'>
                     <input type="text" id='language' value={langValue} onChange={(e) => setLangValue(e.target.value)}/>
                     <button className='addBtn' id='langBtn' onClick={() => handleAddLang(langValue)}>Add +</button>
+                    {languages.map((language, index) => (
+                        <li className='list-item' key={index}>
+                            {language}
+                            <button className='removeBtn' onClick={() => removeLang(index)}>remove</button>
+                        </li>
+                    ))} 
                 </div>
             )}
         </>
@@ -123,22 +175,30 @@ Education.propTypes = {
     handleEducationForm: PropTypes.func,
     handleAddEducation: PropTypes.func,
     formData: PropTypes.objectOf(PropTypes.string),
+    educations: PropTypes.arrayOf(PropTypes.objectOf(PropTypes.string)),
+    setEducations: PropTypes.func
 }
 
 Experience.propTypes = {
     handleExpForm: PropTypes.func,
     handleAddExp: PropTypes.func,
     expData: PropTypes.objectOf(PropTypes.string),
+    experiences: PropTypes.arrayOf(PropTypes.objectOf(PropTypes.string)),
+    setExperiences: PropTypes.func
 }
 
 Skills.propTypes = {
     handleAddSkill: PropTypes.func,
     skillValue: PropTypes.string,
     setSkillValue: PropTypes.func,
+    skills: PropTypes.arrayOf(PropTypes.string),
+    setSkills: PropTypes.func
 }
 
 Languages.propTypes = {
     handleAddLang: PropTypes.func,
     langValue: PropTypes.string,
     setLangValue: PropTypes.func,
+    languages: PropTypes.arrayOf(PropTypes.string),
+    setLanguages: PropTypes.func
 }
