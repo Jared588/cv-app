@@ -55,7 +55,7 @@ export function Education({ handleEducationForm, handleAddEducation, formData, e
                     {educations.map((education, index) => (
                         <li className='list-item' key={index}>
                             {education.school} - {education.degree}
-                            <button className='removeBtn' onClick={() => removeEducationItem(index)}>remove</button>
+                            <button className='removeBtn' onClick={() => removeEducationItem(index)}>x</button>
                         </li>
                     ))} 
                 </div>
@@ -96,7 +96,7 @@ export function Experience({ handleExpForm, handleAddExp, expData, experiences, 
                     {experiences.map((experience, index) => (
                         <li className='list-item' key={index}>
                             {experience.company} - {experience.position}
-                            <button className='removeBtn' onClick={() => removeExpItem(index)}>remove</button>
+                            <button className='removeBtn' onClick={() => removeExpItem(index)}>x</button>
                         </li>
                     ))} 
                 </div>
@@ -127,7 +127,7 @@ export function Skills({ handleAddSkill, skillValue, setSkillValue, skills, setS
                     {skills.map((skill, index) => (
                         <li className='list-item' key={index}>
                             {skill}
-                            <button className='removeBtn' onClick={() => removeSkill(index)}>remove</button>
+                            <button className='removeBtn' onClick={() => removeSkill(index)}>x</button>
                         </li>
                     ))} 
                 </div>
@@ -158,7 +158,7 @@ export function Languages({ handleAddLang, langValue, setLangValue, languages, s
                     {languages.map((language, index) => (
                         <li className='list-item' key={index}>
                             {language}
-                            <button className='removeBtn' onClick={() => removeLang(index)}>remove</button>
+                            <button className='removeBtn' onClick={() => removeLang(index)}>x</button>
                         </li>
                     ))} 
                 </div>

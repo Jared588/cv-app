@@ -67,6 +67,8 @@
 }
 
 .list-item {
+    display: flex;
+    justify-content: space-between;
     text-align: left;
     border: 1px solid white;
     border-radius: 0.5rem;
